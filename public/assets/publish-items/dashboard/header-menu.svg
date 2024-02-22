@@ -1,0 +1,9 @@
+<svg width="60" height="16" viewBox="0 0 60 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M58.0082 0.96875H2.04718C1.33063 0.96875 0.749756 1.54963 0.749756 2.26617V13.8054C0.749756 14.522 1.33063 15.1029 2.04718 15.1029H58.0082C58.7247 15.1029 59.3056 14.522 59.3056 13.8054V2.26617C59.3056 1.54963 58.7247 0.96875 58.0082 0.96875Z" fill="url(#paint0_linear_2_925)" fill-opacity="0.1"/>
+<defs>
+<linearGradient id="paint0_linear_2_925" x1="30.0273" y1="0.96875" x2="30.0273" y2="15.103" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#BEBEBE"/>
+</linearGradient>
+</defs>
+</svg>

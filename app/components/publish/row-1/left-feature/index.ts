@@ -1,9 +1,9 @@
-import Hero from "./hero.component";
+import { DashboardComponents  } from "./dashboard";
 import Body from "./body.component";
 import LeftFeature from "./left-feature.component";
 
 export const LeftFeatureComponents = {
-    Hero,
+    DashboardComponents,
     Body,
     LeftFeature
 }

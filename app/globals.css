@@ -6,6 +6,10 @@
   body{
     @apply bg-neutral-900 text-white;
   }
+  .container{
+    overflow-x: hidden;
+    @apply relative top-0 left-0 px-2 md:px-5 lg:px-12;
+  }
   .nav-btn::before,.hero-btn::before{
     content:'';
     position:absolute;
@@ -22,6 +26,7 @@
     background: linear-gradient(90deg,white,rgb(128, 128, 128));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
   }
   .seo-card:hover .seo-card-line-hover{
     opacity: 1;
