@@ -47,6 +47,61 @@ const Background:React.FC<{children:React.ReactNode}> = ({children}) => {
     }})
   }
 
+  const handleMotionPaths = () =>{
+    gsap.to('.publish-dashboard-background-line-1',{
+        duration:5,
+        repeat:-1,
+        ease:'linear',
+        motionPath: {
+            path: "#path-1",
+            align: "#path-1",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0,
+            end: 1
+          },
+    })
+    gsap.to('.publish-dashboard-background-line-2',{
+        duration:5,
+        repeat:-1,
+        ease:'linear',
+        motionPath: {
+            path: "#path-2",
+            align: "#path-2",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: true,
+            start: 0.25,
+            end: 1.25
+          },
+    })
+    gsap.to('.publish-dashboard-background-line-3',{
+        duration:5,
+        repeat:-1,
+        ease:'linear',
+        motionPath: {
+            path: "#path-3",
+            align: "#path-3",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: 180,
+            start: 0.50,
+            end: 1.50
+          },
+    })
+    gsap.to('.publish-dashboard-background-line-4',{
+        duration:5,
+        repeat:-1,
+        ease:'linear',
+        morphSVG:'#path-4',
+        motionPath: {
+            path: "#path-4",
+            align: "#path-4",
+            alignOrigin: [0.5, 0.5],
+            autoRotate: 180,
+            start: -0.75,
+            end: -1.75
+          },
+    })
+  }
   
   useEffect(()=>{
       handleInitAnimate()
@@ -55,11 +110,12 @@ const Background:React.FC<{children:React.ReactNode}> = ({children}) => {
   useEffect(()=>{
     if(isSet){
         handleAnimateCircles()
-        handleAnimatePaths()
+        handleAnimatePaths()    
+        handleMotionPaths()
     }
   },[isSet])
   return (
-    <div className="publish-dashboard-background my-12 relative top-0 left-0">
+    <div className="publish-dashboard-background my-12 relative top-0 left-0 translate-y-20">
       <svg className='publish-dashboard-background-circles absolute left-0 -top-[150px] md:left-10' width="83" height="83" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.5">
                 <path d="M77.1898 11.2389C80.1212 11.2389 82.4976 8.86255 82.4976 5.9312C82.4976 2.99986 80.1212 0.623535 77.1898 0.623535C74.2584 0.623535 71.882 2.99986 71.882 5.9312C71.882 8.86255 74.2584 11.2389 77.1898 11.2389Z" fill="#7B7B7B"/>
@@ -81,16 +137,16 @@ const Background:React.FC<{children:React.ReactNode}> = ({children}) => {
             </g>
         </svg>
         <svg className='publish-dashboard-background-rounded-path-1 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2' width="619" height="208" viewBox="0 0 619 208" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M605.681 1.38086H13.0834C6.30462 1.38086 0.809296 6.87619 0.809296 13.655V194.537C0.809296 201.316 6.30462 206.811 13.0834 206.811H605.681C612.46 206.811 617.955 201.316 617.955 194.537V13.655C617.955 6.87619 612.46 1.38086 605.681 1.38086Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
+            <path id="path-1" d="M605.681 1.38086H13.0834C6.30462 1.38086 0.809296 6.87619 0.809296 13.655V194.537C0.809296 201.316 6.30462 206.811 13.0834 206.811H605.681C612.46 206.811 617.955 201.316 617.955 194.537V13.655C617.955 6.87619 612.46 1.38086 605.681 1.38086Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
         </svg>
         <svg className='publish-dashboard-background-rounded-path-2 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2' width="557" height="234" viewBox="0 0 557 234" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M543.759 1.46094H13.0054C6.22659 1.46094 0.731262 6.95627 0.731262 13.7351V220.458C0.731262 227.236 6.22659 232.732 13.0054 232.732H543.759C550.537 232.732 556.033 227.236 556.033 220.458V13.7351C556.033 6.95627 550.537 1.46094 543.759 1.46094Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
+            <path id="path-2" d="M543.759 1.46094H13.0054C6.22659 1.46094 0.731262 6.95627 0.731262 13.7351V220.458C0.731262 227.236 6.22659 232.732 13.0054 232.732H543.759C550.537 232.732 556.033 227.236 556.033 220.458V13.7351C556.033 6.95627 550.537 1.46094 543.759 1.46094Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
         </svg>
         <svg className='publish-dashboard-background-rounded-path-3 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2' width="495" height="259" viewBox="0 0 495 259" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M481.836 0.540527H12.9271C6.14828 0.540527 0.652954 6.03586 0.652954 12.8147V245.378C0.652954 252.157 6.14828 257.652 12.9271 257.652H481.836C488.615 257.652 494.11 252.157 494.11 245.378V12.8147C494.11 6.03586 488.615 0.540527 481.836 0.540527Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
+            <path id="path-3" d="M481.836 0.540527H12.9271C6.14828 0.540527 0.652954 6.03586 0.652954 12.8147V245.378C0.652954 252.157 6.14828 257.652 12.9271 257.652H481.836C488.615 257.652 494.11 252.157 494.11 245.378V12.8147C494.11 6.03586 488.615 0.540527 481.836 0.540527Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
         </svg>
         <svg className='publish-dashboard-background-circle-path absolute top-1/2 left-1/2 -translate-x-1/2' width="619" height="134" viewBox="0 0 619 134" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M618 67.0002C618 76.0431 609.461 84.6883 593.898 92.5835C578.333 100.479 555.776 107.606 527.85 113.597C472.002 125.58 394.804 133 309.5 133C224.196 133 146.998 125.58 91.1503 113.597C63.2246 107.606 40.6679 100.479 25.1022 92.5835C9.53905 84.6883 1 76.0431 1 67.0002C1 57.9567 9.53905 49.3114 25.1022 41.4167C40.6679 33.5205 63.2246 26.3943 91.1503 20.4025C146.998 8.41948 224.196 1 309.5 1C394.804 1 472.002 8.41948 527.85 20.4025C555.776 26.3943 578.333 33.5205 593.898 41.4167C609.461 49.3114 618 57.9567 618 67.0002Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
+            <path id="path-4" d="M618 67.0002C618 76.0431 609.461 84.6883 593.898 92.5835C578.333 100.479 555.776 107.606 527.85 113.597C472.002 125.58 394.804 133 309.5 133C224.196 133 146.998 125.58 91.1503 113.597C63.2246 107.606 40.6679 100.479 25.1022 92.5835C9.53905 84.6883 1 76.0431 1 67.0002C1 57.9567 9.53905 49.3114 25.1022 41.4167C40.6679 33.5205 63.2246 26.3943 91.1503 20.4025C146.998 8.41948 224.196 1 309.5 1C394.804 1 472.002 8.41948 527.85 20.4025C555.776 26.3943 578.333 33.5205 593.898 41.4167C609.461 49.3114 618 57.9567 618 67.0002Z" stroke="white" strokeOpacity="0.05" strokeWidth="0.995833"/>
         </svg>
         <svg className='publish-dashboard-background-parabola-path-1 absolute top-0 left-5' width="20" height="91" viewBox="0 0 20 91" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.4086 0.984375C5.13657 15.6881 -14.8443 54.049 19.4086 89.8579" stroke="url(#paint0_linear_2_972)" strokeLinecap='round'/>

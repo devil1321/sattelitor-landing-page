@@ -5,9 +5,10 @@
 @layer base{
   body{
     @apply bg-neutral-900 text-white;
+    height:1000vh;
   }
   .container{
-    overflow-x: hidden;
+    overflow-x: clip;
     @apply relative top-0 left-0 px-2 md:px-5 lg:px-12;
   }
   .nav-btn::before,.hero-btn::before{

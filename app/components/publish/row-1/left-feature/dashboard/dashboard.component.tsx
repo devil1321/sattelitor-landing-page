@@ -1,6 +1,84 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger,DrawSVGPlugin } from 'gsap/all'
 
 const Dashboard = () => {
+
+  const handleAnimateHeader = () =>{
+    gsap.fromTo('.publish-dashboard-header-circle',{ opacity:0 },{ duration:5, opacity:1,scrollTrigger:{
+        trigger:'.publish-dashboard',
+        start:'-=300px', 
+        end:'-=250px',
+    }})
+    gsap.fromTo('.publish-dashboard-header-menu',{ opacity:0 },{ duration:5, opacity:1,scrollTrigger:{
+        trigger:'.publish-dashboard',
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+  }
+  const handleAnimateIntro = () =>{
+    const tl = gsap.timeline()
+    tl.fromTo('.publish-dashboard-intro-title',{ attr:{ width:0 } },{ duration:5,attr:{ width:108 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+    .fromTo('.publish-dashboard-intro-paragraph-1',{ attr:{ width:0 } },{ duration:5,attr:{ width:79 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+    .fromTo('.publish-dashboard-intro-paragraph-2',{ attr:{ width:0 } },{ duration:5,attr:{ width:79 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+    .fromTo('.publish-dashboard-intro-btn',{ attr: { opacity:0 } },{ duration:2,attr: { opacity:1 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+  }
+  const handleAnimateItems = () =>{
+    const tl = gsap.timeline()
+    tl.fromTo('.publish-dashboard-item-image',{ attr:{ width:0,height:0 } },{ duration:5,attr:{ width:44,height:31 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'    
+    }})
+    tl.fromTo('.publish-dashboard-item-title',{ attr:{ width:0 } },{ duration:5,attr:{ width:72 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'  
+    }})
+    tl.fromTo('.publish-dashboard-item-paragraph-1',{ attr:{ width:0 } },{ duration:5,attr:{ width:53 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'
+    }})
+    tl.fromTo('.publish-dashboard-item-paragraph-2',{ attr:{ width:0 } },{ duration:5,attr:{ width:53 },scrollTrigger:{
+        trigger:'.publish-dashboard',
+        scrub:3,
+        start:'-=300px', 
+        end:'-=250px'    
+    }})
+  }
+
+  useEffect(()=>{
+    gsap.registerPlugin(ScrollTrigger,DrawSVGPlugin)
+    handleAnimateHeader()
+    handleAnimateIntro()
+    handleAnimateItems()
+  },[])
+
   return (
     <div className='publish-dashboard w-100 -translate-x-6 xl:w-[200px] relative top-0 left-1/2 md:-translate-x-1/2'>
         <svg className='publish-dashboard-background absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' width="306" height="200" viewBox="0 0 306 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,10 +109,10 @@ const Dashboard = () => {
         <svg className='publish-dashboard-intro-title absolute left-1/2 -top-12 -translate-x-1/2' width="108" height="7" viewBox="0 0 108 7" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M104.443 0.0639648H3.48438C1.81165 0.0639648 0.455627 1.41998 0.455627 3.09271C0.455627 4.76545 1.81165 6.12146 3.48438 6.12146H104.443C106.115 6.12146 107.471 4.76545 107.471 3.09271C107.471 1.41998 106.115 0.0639648 104.443 0.0639648Z" fill="#D9D9D9" fillOpacity="0.05"/>
         </svg>
-        <svg className='publish-dashboard-intro-paragraph absolute left-1/2 -top-9 -translate-x-1/2' width="79" height="5" viewBox="0 0 79 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='publish-dashboard-intro-paragraph-1 absolute left-1/2 -top-9 -translate-x-1/2' width="79" height="5" viewBox="0 0 79 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M76.3084 0.197754H2.60888C1.49373 0.197754 0.589722 1.10177 0.589722 2.21692C0.589722 3.33207 1.49373 4.23609 2.60888 4.23609H76.3084C77.4236 4.23609 78.3276 3.33207 78.3276 2.21692C78.3276 1.10177 77.4236 0.197754 76.3084 0.197754Z" fill="#D9D9D9" fillOpacity="0.05"/>
         </svg>
-        <svg className='publish-dashboard-intro-paragraph absolute left-1/2 -top-7 -translate-x-1/2' width="79" height="5" viewBox="0 0 79 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className='publish-dashboard-intro-paragraph-2 absolute left-1/2 -top-7 -translate-x-1/2' width="79" height="5" viewBox="0 0 79 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M76.3084 0.197754H2.60888C1.49373 0.197754 0.589722 1.10177 0.589722 2.21692C0.589722 3.33207 1.49373 4.23609 2.60888 4.23609H76.3084C77.4236 4.23609 78.3276 3.33207 78.3276 2.21692C78.3276 1.10177 77.4236 0.197754 76.3084 0.197754Z" fill="#D9D9D9" fillOpacity="0.05"/>
         </svg>
         <svg className='publish-dashboard-intro-btn absolute left-1/2 -top-4 -translate-x-1/2' width="60" height="15" viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,30 +126,30 @@ const Dashboard = () => {
         </svg>
 
         <div className="publish-dashboard-item relative top-0 left-1/2 -translate-x-20 xl:-translate-x-1/2">
-            <svg className='publish-dashboard-item-1-image absolute top-2 left-0' width="44" height="31" viewBox="0 0 44 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-image absolute top-2 left-0' width="44" height="31" viewBox="0 0 44 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M41.0999 0.754395H2.8775C1.4444 0.754395 0.282654 1.91615 0.282654 3.34924V27.4375C0.282654 28.8706 1.4444 30.0323 2.8775 30.0323H41.0999C42.533 30.0323 43.6948 28.8706 43.6948 27.4375V3.34924C43.6948 1.91615 42.533 0.754395 41.0999 0.754395Z" fill="#D9D9D9" fillOpacity="0.05"/>
             </svg>
-            <svg className='publish-dashboard-item-1-title absolute left-12 top-3' width="72" height="5" viewBox="0 0 72 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-title absolute left-12 top-3' width="72" height="5" viewBox="0 0 72 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M69.4331 0.802734H2.80066C1.6855 0.802734 0.781494 1.70675 0.781494 2.8219C0.781494 3.93706 1.6855 4.84107 2.80066 4.84107H69.4331C70.5483 4.84107 71.4523 3.93706 71.4523 2.8219C71.4523 1.70675 70.5483 0.802734 69.4331 0.802734Z" fill="#D9D9D9" fillOpacity="0.05"/>
             </svg>
-            <svg className='publish-dashboard-item-1-paragraph-1 absolute left-12 top-5' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-paragraph-1 absolute left-12 top-5' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50.7558 0.964844H2.29587C1.4595 0.964844 0.781494 1.64286 0.781494 2.47922C0.781494 3.31559 1.4595 3.9936 2.29587 3.9936H50.7558C51.5922 3.9936 52.2702 3.31559 52.2702 2.47922C52.2702 1.64286 51.5922 0.964844 50.7558 0.964844Z" fill="#D9D9D9" fillOpacity="0.03"/>
             </svg>
-            <svg className='publish-dashboard-item-1-paragraph-2 absolute left-12 top-7' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-paragraph-2 absolute left-12 top-7' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50.7558 0.964844H2.29587C1.4595 0.964844 0.781494 1.64286 0.781494 2.47922C0.781494 3.31559 1.4595 3.9936 2.29587 3.9936H50.7558C51.5922 3.9936 52.2702 3.31559 52.2702 2.47922C52.2702 1.64286 51.5922 0.964844 50.7558 0.964844Z" fill="#D9D9D9" fillOpacity="0.03"/>
             </svg>
         </div>
         <div className="publish-dashboard-item relative top-10 left-1/2 -translate-x-20 xl:-translate-x-1/2">
-            <svg className='publish-dashboard-item-2-image absolute top-2 left-0' width="44" height="31" viewBox="0 0 44 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-image absolute top-2 left-0' width="44" height="31" viewBox="0 0 44 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M41.0999 0.754395H2.8775C1.4444 0.754395 0.282654 1.91615 0.282654 3.34924V27.4375C0.282654 28.8706 1.4444 30.0323 2.8775 30.0323H41.0999C42.533 30.0323 43.6948 28.8706 43.6948 27.4375V3.34924C43.6948 1.91615 42.533 0.754395 41.0999 0.754395Z" fill="#D9D9D9" fillOpacity="0.05"/>
             </svg>
-            <svg className='publish-dashboard-item-2-title absolute left-12 top-3' width="72" height="5" viewBox="0 0 72 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-title absolute left-12 top-3' width="72" height="5" viewBox="0 0 72 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M69.4331 0.802734H2.80066C1.6855 0.802734 0.781494 1.70675 0.781494 2.8219C0.781494 3.93706 1.6855 4.84107 2.80066 4.84107H69.4331C70.5483 4.84107 71.4523 3.93706 71.4523 2.8219C71.4523 1.70675 70.5483 0.802734 69.4331 0.802734Z" fill="#D9D9D9" fillOpacity="0.05"/>
             </svg>
-            <svg className='publish-dashboard-item-2-paragraph-1 absolute left-12 top-5' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-paragraph-1 absolute left-12 top-5' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50.7558 0.964844H2.29587C1.4595 0.964844 0.781494 1.64286 0.781494 2.47922C0.781494 3.31559 1.4595 3.9936 2.29587 3.9936H50.7558C51.5922 3.9936 52.2702 3.31559 52.2702 2.47922C52.2702 1.64286 51.5922 0.964844 50.7558 0.964844Z" fill="#D9D9D9" fillOpacity="0.03"/>
             </svg>
-            <svg className='publish-dashboard-item-2-paragraph-2 absolute left-12 top-7' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='publish-dashboard-item-paragraph-2 absolute left-12 top-7' width="53" height="4" viewBox="0 0 53 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50.7558 0.964844H2.29587C1.4595 0.964844 0.781494 1.64286 0.781494 2.47922C0.781494 3.31559 1.4595 3.9936 2.29587 3.9936H50.7558C51.5922 3.9936 52.2702 3.31559 52.2702 2.47922C52.2702 1.64286 51.5922 0.964844 50.7558 0.964844Z" fill="#D9D9D9" fillOpacity="0.03"/>
             </svg>
         </div>
