@@ -1,9 +1,12 @@
 import React from 'react'
+import Body from './body.component'
+import FeatureImage from './feature-image.component'
 
 const LeftFeature = () => {
   return (
-    <div>
-      
+    <div className='flex justify-start xl:justify-between items-start xl:items-center flex-col xl:flex-row p-12 -ml-9 md:ml-0 xl:-ml-9 bg-neutral-950/50 rounded-lg xl:w-3/5'>
+      <Body />
+      <FeatureImage />
     </div>
   )
 }

@@ -5,7 +5,7 @@
 @layer base{
   body{
     @apply bg-neutral-900 text-white;
-    height:1000vh;
+    height:3000vh;
   }
   .container{
     max-width: 100vw;
@@ -44,5 +44,23 @@
   }
   .ranks-card-paragraph{
     transition: all 0.3s ease-in-out;
+  }
+  .publish-wave,.publish-row-2-feature-image-messages{
+    transform: translateX(-50%);
+    animation: wave 5s linear infinite ;
+  }
+  @keyframes wave {
+    to {
+      transform: translateX(0%);
+    }
+  }
+  .publish-row-2-feature-image-slider{
+    transform: translateX(0%);
+    animation: wave-minus 5s linear infinite ;
+  }
+  @keyframes wave-minus {
+    to {
+      transform: translateX(-100%);
+    }
   }
 }
