@@ -18,6 +18,7 @@ const Item:React.FC<{to:number,title:string}> = ({title,to}) => {
   const handleCount = () =>{
       let time = 0
       let text = 0
+      let angle = 0
       if(isPlaying){
         gsap.to(wrapperRef.current,{opacity:1,duration:1})
         for(let i = 0; i < 360 - to; i++){
@@ -26,6 +27,9 @@ const Item:React.FC<{to:number,title:string}> = ({title,to}) => {
             if(i < to){
               text = i
             } 
+            if(i < to){
+              angle = i * 3.5
+            }
             ctxRef.current.beginPath()
             ctxRef.current.lineCap = 'round'
             ctxRef.current.font = "bold 30px Verdana"
@@ -33,7 +37,7 @@ const Item:React.FC<{to:number,title:string}> = ({title,to}) => {
             ctxRef.current.fillText(text,canvasRef.current.width / 2 - 20,canvasRef.current.height / 2 + 10)
             ctxRef.current.strokeStyle = 'rgb(15 23 42)'
             ctxRef.current.lineWidth = 3
-            ctxRef.current.arc(canvasRef.current.width / 2,canvasRef.current.height / 2,canvasRef.current.height / 2 - 5,0,Math.PI * i / 180)
+            ctxRef.current.arc(canvasRef.current.width / 2,canvasRef.current.height / 2,canvasRef.current.height / 2 - 5,0,Math.PI * angle / 180)
             ctxRef.current.fillStyle = 'transparent'
             ctxRef.current.fill()
             ctxRef.current.stroke()

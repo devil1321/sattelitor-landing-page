@@ -45,9 +45,12 @@
   .ranks-card-paragraph{
     transition: all 0.3s ease-in-out;
   }
-  .publish-wave,.publish-row-2-feature-image-messages{
+  .publish-wave,.publish-row-2-feature-image-messages,.publish-row-3-slider{
     transform: translateX(-50%);
     animation: wave 5s linear infinite ;
+  }
+  .publish-row-3-slider-wrapper{
+    -webkit-mask: linear-gradient(90deg,transparent,white,white,transparent);
   }
   @keyframes wave {
     to {
@@ -62,5 +65,8 @@
     to {
       transform: translateX(-100%);
     }
+  }
+  .publish-row-3-feature-wrapper {
+    background-position-x:300px;
   }
 }

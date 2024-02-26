@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Row_1_Components } from './row-1'
 import { Row_2_Components } from './row-2'
 import { GlobalComponents } from '../global'
+import { Row_3_Components } from './row-3'
 const Publish = () => {
   return (
     <div className='publish my-[100px] md:my-[200px] relative'>
@@ -22,6 +23,7 @@ const Publish = () => {
         <Row_2_Components.LeftFeatureComponents.LeftFeature />
         <Row_2_Components.RightFeatureComponents.RightFeature />
       </div>
+      <Row_3_Components.Feature />
     </div>
   )
 }
